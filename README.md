@@ -25,6 +25,17 @@ Clear Setup Rules: The cards are shuffled and laid out face down in a random pat
 Turn Structure: Instructions dictate flipping two cards per turn, with the ability to keep them if they match.
 
 #### Project Could-Haves
+None Matching Cards: Include one or two cards that do not have a pair, forcing players to recall which cards to avoid.
+Card Rotation: Every n moves, the cards reshuffle, changing their perspective on the board.
+Timed Moves: Use of a timer to add urgency to the game. 
+Use of customised pictures: Personalising the game using photos of family, friends, pets, and/or travel locations.
+Customising the reverse side of the cards to match the theme such as character art and colors.
+Size Variation: Use of oversized visual cards for young children for ease of identification. 
+Educational Sets: Use of cards to teach numbers, letters and shapes along with use of high-quality illustrations of animals and plants.
+Patient Memory Care: Use of high-contrast images with large fonts specifically designed for elderly patients to support cognitive function.
+Pop Culture: Feature, for example, Marvel characters, to make it more appealing to children. 
+Online Customising Editor: Use an online editor to upload images, choose themes, and preview the deck before publishing online.
+App Integration: Combining with a companion app that tracks high scores or provides a timer. 
 
 
 ##### Features
