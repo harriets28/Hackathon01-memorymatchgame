@@ -1,0 +1,119 @@
+/* Game title styling */
+header h1 {
+    font-family: "Poppins", "Segoe UI", sans-serif;
+    font-weight: 700;
+    font-size: 3rem;
+    text-align: center;
+    background: linear-gradient(45deg, #2c2f5a, #3a3e70);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 1px;
+    margin: 2rem 0 1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+/* Card styling */
+.card {
+    background: transparent;
+    border: none;
+    padding: 0.75rem;
+}
+
+.card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+
+    background: white;
+    border-radius: 18px;
+    padding: 1rem;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+
+    cursor: pointer;
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.3s ease;
+}
+
+/* Flipping effect */
+.card img.flipping {
+    transform: rotateY(180deg);
+}
+
+.card img.front {
+    background: #fff;
+    padding: 1.2rem;
+}
+
+.card img.matched {
+    box-shadow:
+        0 0 0 3px #4caf50,
+        0 12px 30px rgba(76, 175, 80, 0.4);
+
+    cursor: default;
+    transform: scale(0.95);
+}
+.card img:not(.matched):hover {
+    transform: translateY(-6px) scale(1.04);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+/* Override styling of the Bootstrap difficulty buttons */
+#difficulty .btn {
+    background-color: #f3f4ff;
+    color: #2c2f5a;
+    border: 2px solid #dcdfff;
+
+    font-weight: 600;
+    border-radius: 30px;
+    padding: 0.5rem 1.3rem;
+    margin: 0 0.3rem;
+
+    transition:
+        background-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#difficulty .btn:hover {
+    background-color: #e4e7ff;
+}
+
+/* Selected (checked) state */
+.btn-check:checked + .btn {
+    background-color: #ff6f91;
+    color: white;
+    border-color: #ff6f91;
+    box-shadow: 0 4px 12px rgba(255, 111, 145, 0.4);
+}
+
+/* Remove Bootstrap blue active state */
+.btn-primary:active {
+    background-color: inherit !important;
+    border-color: inherit !important;
+}
+
+/* Restart button styling matche the difficulty buttons */
+#restart {
+    background-color: #f3f4ff;
+    color: #2c2f5a;
+    border: 2px solid #dcdfff;
+    border-radius: 30px;
+    padding: 0.5rem 1.5rem;
+    font-weight: 600;
+    transition:
+        background-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+    cursor: pointer;
+}
+
+#restart:hover {
+    background-color: #e4e7ff;
+    transform: translateY(-2px);
+}
+
+#restart:active {
+    background-color: #d8dbff;
+    transform: translateY(0);
+}
