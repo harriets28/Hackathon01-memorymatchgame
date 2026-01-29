@@ -113,3 +113,8 @@ var timerInterval = null;
 
 /* Total pairs required to win for current difficulty (4/6/8). */
 var totalPairs = 0;
+/* Returns the currently selected difficulty level ("easy", "medium", or "hard"). in case of an error it automatically defaults to "easy" */
+function getSelectedDifficulty() {
+  var checked = document.querySelector('input[name="difficulty"]:checked');
+  return checked ? checked.value : "easy";
+}
