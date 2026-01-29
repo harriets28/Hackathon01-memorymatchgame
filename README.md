@@ -17,9 +17,15 @@ Use of buttons: Buttons are included to allow frequent clicking and handling, es
 Clear, Distinct Imagery: Images are easy to distinguish from one another to help with recognition and memory.
 
 ### Project Should-Haves
-
+Identical Backs: The most important rule is that all cards must look identical on the back to prevent identifying specific cards while face down.
+Distinct Sets: Every single image have an exact duplicate to form a pair. For more complexity, sets of four my be used.
+High-Contrast, Clear Images: Especially for children or seniors, images are bright, clear, and easy to distinguish from one another such as animals, fruits and people.
+Sufficient Count: The starting point imay be even be an increased number of pairs such as 12–24 pairs (24–48 cards), adjusted for difficulty. 
+Clear Setup Rules: The cards are shuffled and laid out face down in a random pattern.
+Turn Structure: Instructions dictate flipping two cards per turn, with the ability to keep them if they match.
 
 #### Project Could-Haves
+
 
 ##### Features
 The Memory Match Game can be played by one player at a time.
