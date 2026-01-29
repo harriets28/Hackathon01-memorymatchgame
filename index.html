@@ -16,58 +16,171 @@
 
 <body>
     <header>
-        <h1>Match that Card!</h1>
+        <h1 class="text-center">Match that Card!</h1>
         <p></p>
     </header>
     <main>
         <!-- difficulty selectors -->
-        <section id="difficulty-selectors"></section>
+        <section class="container-fluid text-center" id="difficulty-selectors">
+            <div class="row">
+                <div id="difficulty">
+                    <input type="radio" class="btn-check" id="easy" name="difficulty" checked autocomplete="off">
+                    <label class="btn btn-primary" for="easy">Easy</label>
 
-        <section id="game-area-1" class="game-area-1" visibility="visible">
-            <div class="container">
-                <div class="row g-3">
-                    <div class="card" style="width: 18rem;">
+                    <input type="radio" class="btn-check" id="medium" name="difficulty" autocomplete="off">
+                    <label class="btn btn-primary" for="medium">Medium</label>
+
+                    <input type="radio" class="btn-check" id="hard" name="difficulty" autocomplete="off">
+                    <label class="btn btn-primary" for="hard">Hard</label>
+                </div>
+            </div>
+        </section>
+
+        <section id="game-area-1" class="game-area-1 " >
+            <div class="container-fluid">
+                <div class="row p-3">
+                    <div class="card col-6 ">
                         <img src="assets/favicons/freepikmini64.png" class="card01" alt="...">
 
                     </div>
-                    <div class="card" style="width: 18rem;">
+                    <div class="card col-6">
                         <img src="assets/favicons/freepikmini64.png" class="card02" alt="...">
 
                     </div>
-                </div>
-
-                <div class="row g-3">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card col-6">
                         <img src="assets/favicons/freepikmini64.png" class="card03" alt="...">
 
                     </div>
-                    <div class="card" style="width: 18rem;">
+                    <div class="card col-6">
                         <img src="assets/favicons/freepikmini64.png" class="card04" alt="...">
 
                     </div>
-                </div>
-                <div class="row g-3">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card col-6">
                         <img src="assets/favicons/freepikmini64.png" class="card05" alt="...">
 
                     </div>
-                    <div class="card" style="width: 18rem;">
+                    <div class="card col-6">
                         <img src="assets/favicons/freepikmini64.png" class="card06" alt="...">
                     </div>
-                </div>
-                <div class="row g-3">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card col-6">
                         <img src="assets/favicons/freepikmini64.png" class="card07" alt="...">
 
                     </div>
-                    <div class="card" style="width: 18rem;">
+                    <div class="card col-6">
                         <img src="assets/favicons/freepikmini64.png" class="card08" alt="...">
                     </div>
                 </div>
             </div>
 
-        
         </section>
+        <!-- Medium game board - used d-none to hide initially -->
+        <section id="game-area-2" class="game-area-2 d-none" >
+            <div class="container-fluid">
+                <div class="row p-3">
+                    <div class="card col-4 ">
+                        <img src="assets/favicons/freepikmini64.png" class="card01" alt="...">
+                    </div>
+                    <div class="card col-4">
+                        <img src="assets/favicons/freepikmini64.png" class="card02" alt="...">
+                    </div>
+                    <div class="card col-4">
+                        <img src="assets/favicons/freepikmini64.png" class="card03" alt="...">
+                    </div>
+                    <div class="card col-4">
+                        <img src="assets/favicons/freepikmini64.png" class="card04" alt="...">
+                    </div>
+                    <div class="card col-4">
+                        <img src="assets/favicons/freepikmini64.png" class="card05" alt="...">
+                    </div>
+                    <div class="card col-4">
+                        <img src="assets/favicons/freepikmini64.png" class="card06" alt="...">
+                    </div>
+                    <div class="card col-4">
+                        <img src="assets/favicons/freepikmini64.png" class="card07" alt="...">
+                    </div>
+                    <div class="card col-4">
+                        <img src="assets/favicons/freepikmini64.png" class="card08" alt="...">
+                    </div>
+                    <div class="card col-4">
+                        <img src="assets/favicons/freepikmini64.png" class="card09" alt="...">
+                    </div>
+                    <div class="card col-4">
+                        <img src="assets/favicons/freepikmini64.png" class="card10" alt="...">
+                    </div>
+                    <div class="card col-4">
+                        <img src="assets/favicons/freepikmini64.png" class="card11" alt="...">
+                    </div>
+                    <div class="card col-4">
+                        <img src="assets/favicons/freepikmini64.png" class="card12" alt="...">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Hard game board - used d-none to hide initially -->
+                <section id="game-area-3" class="game-area-3 d-none" >
+            <div class="container-fluid">
+                <div class="row p-3">
+                    <div class="card col-3 ">
+                        <img src="assets/favicons/freepikmini64.png" class="card01" alt="...">
+                    </div>
+                    <div class="card col-3">
+                        <img src="assets/favicons/freepikmini64.png" class="card02" alt="...">
+                    </div>
+                    <div class="card col-3">
+                        <img src="assets/favicons/freepikmini64.png" class="card03" alt="...">
+                    </div>
+                    <div class="card col-3">
+                        <img src="assets/favicons/freepikmini64.png" class="card04" alt="...">
+                    </div>
+                    <div class="card col-3">
+                        <img src="assets/favicons/freepikmini64.png" class="card05" alt="...">
+                    </div>
+                    <div class="card col-3">
+                        <img src="assets/favicons/freepikmini64.png" class="card06" alt="...">
+                    </div>
+                    <div class="card col-3">
+                        <img src="assets/favicons/freepikmini64.png" class="card07" alt="...">
+                    </div>
+                    <div class="card col-3">
+                        <img src="assets/favicons/freepikmini64.png" class="card08" alt="...">
+                    </div>
+                    <div class="card col-3">
+                        <img src="assets/favicons/freepikmini64.png" class="card09" alt="...">
+                    </div>
+                    <div class="card col-3">
+                        <img src="assets/favicons/freepikmini64.png" class="card10" alt="...">
+                    </div>
+                    <div class="card col-3">
+                        <img src="assets/favicons/freepikmini64.png" class="card11" alt="...">
+                    </div>
+                    <div class="card col-3">
+                        <img src="assets/favicons/freepikmini64.png" class="card12" alt="...">
+                    </div>
+                                        <div class="card col-3">
+                        <img src="assets/favicons/freepikmini64.png" class="card13" alt="...">
+                    </div>
+                                        <div class="card col-3">
+                        <img src="assets/favicons/freepikmini64.png" class="card14" alt="...">
+                    </div>
+                                        <div class="card col-3">
+                        <img src="assets/favicons/freepikmini64.png" class="card15" alt="...">
+                    </div>
+                                        <div class="card col-3">
+                        <img src="assets/favicons/freepikmini64.png" class="card16" alt="...">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- control button for additional functionality -->
+        <section class="container text-center my-3" id="control-button-section">
+            <button type="button" class="btn btn-success" id="restart">Restart Game</button>
+        </section>
+
+        <!-- You win again (it's by the BeeGees) modal - to be triggered by game play -->
+
+
+
+
     </main>
     <!-- js links -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
