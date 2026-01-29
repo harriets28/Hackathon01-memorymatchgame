@@ -74,3 +74,67 @@ const DIFFICULTY_CONFIG = {
     ],
   },
 };
+/**Game State Variables (Global)
+Why these exist:
+- The game needs to remember what’s happening between clicks.
+- These variables track the current round: which cards are selected, whether clicking is allowed,
+how many moves/matches the player has, and how long the timer has been running.
+Key idea:
+- startGame() resets these values at the beginning of every new round.
+- flipCard(), checkMatch(), and the timer functions update them during gameplay.
+*/
+
+/* Unique image paths for current difficulty (used to build pairs). */
+var images = [];
+
+/* First clicked card DOM element (stored for matching). */
+var firstCard = null;
+
+/* Second clicked card DOM element (stored for matching). */
+var secondCard = null;
+
+/* Click-lock: false prevents extra clicks while checking a pair. */
+var canFlip = true;
+
+/* Number of matched pairs found so far. */
+var matches = 0;
+
+/* Number of pair-attempts made (increments on 2nd card flip). */
+var moves = 0;
+
+/* Elapsed time in seconds since first card click. */
+var seconds = 0;
+
+/* True once timer has started (prevents multiple intervals). */
+var timerRunning = false;
+
+/* setInterval ID so we can stop timer with clearInterval(). */
+var timerInterval = null;
+
+/* Total pairs required to win for current difficulty (4/6/8). */
+var totalPairs = 0;
+/* Returns the currently selected difficulty level ("easy", "medium", or "hard"). in case of an error it automatically defaults to "easy" */
+function getSelectedDifficulty() {
+  var checked = document.querySelector('input[name="difficulty"]:checked');
+  return checked ? checked.value : "easy";
+}
+
+/*
+Match That Card! — Main Game Logic (script.js)
+What this file does:
+- Reads selected difficulty (easy/medium/hard) from radio buttons.
+- Builds a deck from the correct image folder (pairs + shuffle).
+- Renders cards dynamically into #gameBoard.
+- Handles mouse-click flips, match checking, move count, and timer.
+- Shows the Bootstrap win modal when all pairs are matched.
+*/
+
+function shuffleInPlace(arr) {
+  for (var i = arr.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1)); // 0..i
+    var temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+  }
+  return arr;
+}
