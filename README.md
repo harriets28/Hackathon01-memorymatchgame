@@ -4,7 +4,7 @@ This is a Memory Match Game fabricated with HTML, CSS, Bootstrap & JavaScript. T
 
 The Memory Match game developed by the group relied on simple mechanics and durable, consistent components. The core "must-haves" ensured scalability and engagement for players of all ages. The core "should-haves" ensured the backs of the cards were completely identical, with no markings, scratches, or wear that allow players to identify them. The "could-haves" included using cards with educational and interactive themes and using a time limit to increase difficulty.
 
-## Must-Haves
+## Project Must-Haves
 Essential Gameplay Elements
 Simple Instructions: The instructions are easy to understand: match a pair of cards to win.
 Scalability: The game allows for selecting difficulty by clicking "Easy", "Medium" and "Hard" using fewer or more pairs, making it suitable for different ages.
@@ -16,10 +16,10 @@ Identical Card Backs: To ensure interesting gameplay, the backs of the cards are
 Use of buttons: Buttons are included to allow frequent clicking and handling, especially by children.
 Clear, Distinct Imagery: Images are easy to distinguish from one another to help with recognition and memory.
 
-### Should-Haves
+### Project Should-Haves
 
 
-#### Could-Haves
+#### Project Could-Haves
 
 ##### Features
 The Memory Match Game can be played by one player at a time.
