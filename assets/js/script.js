@@ -118,3 +118,23 @@ function getSelectedDifficulty() {
   var checked = document.querySelector('input[name="difficulty"]:checked');
   return checked ? checked.value : "easy";
 }
+
+/*
+Match That Card! — Main Game Logic (script.js)
+What this file does:
+- Reads selected difficulty (easy/medium/hard) from radio buttons.
+- Builds a deck from the correct image folder (pairs + shuffle).
+- Renders cards dynamically into #gameBoard.
+- Handles mouse-click flips, match checking, move count, and timer.
+- Shows the Bootstrap win modal when all pairs are matched.
+*/
+
+function shuffleInPlace(arr) {
+  for (var i = arr.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1)); // 0..i
+    var temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+  }
+  return arr;
+}
