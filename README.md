@@ -4,7 +4,7 @@ This is a Memory Match Game fabricated with HTML, CSS, Bootstrap & JavaScript. T
 
 The Memory Match game developed by the group relied on simple mechanics and durable, consistent components. The core "must-haves" ensured scalability and engagement for players of all ages. The core "should-haves" ensured the backs of the cards were completely identical, with no markings, scratches, or wear that allow players to identify them. The "could-haves" included using cards with educational and interactive themes and using a time limit to increase difficulty.
 
-## Must-Haves
+## Project Must-Haves
 Essential Gameplay Elements
 Simple Instructions: The instructions are easy to understand: match a pair of cards to win.
 Scalability: The game allows for selecting difficulty by clicking "Easy", "Medium" and "Hard" using fewer or more pairs, making it suitable for different ages.
@@ -16,10 +16,27 @@ Identical Card Backs: To ensure interesting gameplay, the backs of the cards are
 Use of buttons: Buttons are included to allow frequent clicking and handling, especially by children.
 Clear, Distinct Imagery: Images are easy to distinguish from one another to help with recognition and memory.
 
-### Should-Haves
+### Project Should-Haves
+Identical Backs: The most important rule is that all cards must look identical on the back to prevent identifying specific cards while face down.
+Distinct Sets: Every single image have an exact duplicate to form a pair. For more complexity, sets of four my be used.
+High-Contrast, Clear Images: Especially for children or seniors, images are bright, clear, and easy to distinguish from one another such as animals, fruits and people.
+Sufficient Count: The starting point imay be even be an increased number of pairs such as 12–24 pairs (24–48 cards), adjusted for difficulty. 
+Clear Setup Rules: The cards are shuffled and laid out face down in a random pattern.
+Turn Structure: Instructions dictate flipping two cards per turn, with the ability to keep them if they match.
 
+#### Project Could-Haves
+None Matching Cards: Include one or two cards that do not have a pair, forcing players to recall which cards to avoid.
+Card Rotation: Every n moves, the cards reshuffle, changing their perspective on the board.
+Timed Moves: Use of a timer to add urgency to the game. 
+Use of customised pictures: Personalising the game using photos of family, friends, pets, and/or travel locations.
+Customising the reverse side of the cards to match the theme such as character art and colors.
+Size Variation: Use of oversized visual cards for young children for ease of identification. 
+Educational Sets: Use of cards to teach numbers, letters and shapes along with use of high-quality illustrations of animals and plants.
+Patient Memory Care: Use of high-contrast images with large fonts specifically designed for elderly patients to support cognitive function.
+Pop Culture: Feature, for example, Marvel characters, to make it more appealing to children. 
+Online Customising Editor: Use an online editor to upload images, choose themes, and preview the deck before publishing online.
+App Integration: Combining with a companion app that tracks high scores or provides a timer. 
 
-#### Could-Haves
 
 ##### Features
 The Memory Match Game can be played by one player at a time.
