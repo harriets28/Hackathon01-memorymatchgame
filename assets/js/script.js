@@ -2,40 +2,39 @@
 "use strict";
 
 
-/**
+/*
  Difficulty + Image Configuration (READ THIS FIRST)
- * What this does:
- * - Defines THREE separate image pools: one for Easy, Medium, and Hard.
- * - Each pool has its own card count and its own set of images.
- * - When the player selects a difficulty in the UI, the JavaScript will ONLY use
-   the images from that difficulty’s folder to build the matching deck.
+What this does:
+Defines THREE separate image pools: one for Easy, Medium, and Hard.
+Each pool has its own card count and its own set of images.
+When the player selects a difficulty in the UI, the JavaScript will ONLY use
+the images from that difficulty’s folder to build the matching deck.
  
- * How the game uses this config:
- * - cardCount = total cards shown on the board (must be even).
- * - pairsNeeded = cardCount / 2  (because each image must appear twice).
- * - The game duplicates each asset to create pairs, then shuffles the full deck.
- * - Matching is done using the 'key' (two cards match when their keys match).
+How the game uses this config:
+- cardCount = total cards shown on the board (must be even).
+- pairsNeeded = cardCount / 2  (because each image must appear twice).
+- The game duplicates each asset to create pairs, then shuffles the full deck.
+- Matching is done using the 'key' (two cards match when their keys match).
+
+IMPORTANT FOR TEAM (DO NOT BREAK THESE):
+1) Folder structure (must stay exactly like this):
+assets/images/game1-fruit/  -> Easy images (4 unique images = 4 pairs)
+assets/images/game2-people/ -> Medium images (6 unique images = 6 pairs)
+assets/images/game3-catsdogs/ -> Hard images (8 unique images = 8 pairs)
  
- * IMPORTANT FOR TEAM (DO NOT BREAK THESE):
- * 1) Folder structure (must stay exactly like this):
- *    assets/images/game1-fruit/  -> Easy images (4 unique images = 4 pairs)
- *    assets/images/game2-people/ -> Medium images (6 unique images = 6 pairs)
- *    assets/images/game3-catsdogs/ -> Hard images (8 unique images = 8 pairs)
+2) If you rename or move any image files, you MUST update the 'src' paths here,
+otherwise images will not load (broken cards).
  
- * 2) If you rename or move any image files, you MUST update the 'src' paths here,
- *    otherwise images will not load (broken cards).
+3) HTML difficulty selector must use these exact values:
+<option value="easy">, <option value="medium">, <option value="hard">
+Because the JS uses those strings to look up DIFFICULTY_CONFIG[diffKey].
  
- * 3) HTML difficulty selector must use these exact values:
- *    <option value="easy">, <option value="medium">, <option value="hard">
- *    Because the JS uses those strings to look up DIFFICULTY_CONFIG[diffKey].
- 
- * 4) Minimum images required per difficulty:
- *    - Easy: 8 cards = 4 pairs -> needs at least 4 unique assets
- *    - Medium: 12 cards = 6 pairs -> needs at least 6 unique assets
- *    - Hard: 16 cards = 8 pairs -> needs at least 8 unique assets
- 
- * 5) 'alt' text is used for accessibility (screen readers) when a card is flipped.
- */
+4) Minimum images required per difficulty:
+- Easy: 8 cards = 4 pairs -> needs at least 4 unique assets
+- Medium: 12 cards = 6 pairs -> needs at least 6 unique assets
+- Hard: 16 cards = 8 pairs -> needs at least 8 unique assets
+5) 'alt' text is used for accessibility (screen readers) when a card is flipped.
+*/
 
 const DIFFICULTY_CONFIG = {
   easy: {
@@ -74,7 +73,17 @@ const DIFFICULTY_CONFIG = {
     ],
   },
 };
-/**Game State Variables (Global)
+
+/* Back-of-card image shown before flip (placeholder image). */
+var BACK_IMAGE_SRC = "assets/favicons/freepikmini64.png";
+
+/* Map difficulty -> which static board section to show */
+var BOARD_BY_DIFFICULTY = {
+  easy: "game-area-1",
+  medium: "game-area-2",
+  hard: "game-area-3"
+};
+/*Game State Variables (Global)
 Why these exist:
 - The game needs to remember what’s happening between clicks.
 - These variables track the current round: which cards are selected, whether clicking is allowed,
@@ -83,9 +92,6 @@ Key idea:
 - startGame() resets these values at the beginning of every new round.
 - flipCard(), checkMatch(), and the timer functions update them during gameplay.
 */
-
-/* Unique image paths for current difficulty (used to build pairs). */
-var images = [];
 
 /* First clicked card DOM element (stored for matching). */
 var firstCard = null;
@@ -116,7 +122,7 @@ var totalPairs = 0;
 /* Returns the currently selected difficulty level ("easy", "medium", or "hard"). in case of an error it automatically defaults to "easy" */
 function getSelectedDifficulty() {
   var checked = document.querySelector('input[name="difficulty"]:checked');
-  return checked ? checked.value : "easy";
+  return checked ? checked.id : "easy";
 }
 
 /*
