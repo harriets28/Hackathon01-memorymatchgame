@@ -157,3 +157,20 @@ function updateStats() {
   setTextById("timeValue", "time", mins + ":" + secs);
 }
 
+/*Timer control. counts how long the player takes to finish the game, Timer will start on the first card click 
+(so there's no idle time being counted before the player is ready to start) */
+function startTimer() {
+  timerRunning = true;
+
+  timerInterval = setInterval(function () {
+    seconds++;
+    updateStats();
+  }, 1000);
+}
+
+function stopTimer() {
+  if (timerInterval) {
+    clearInterval(timerInterval);
+    timerInterval = null;
+  }
+}
