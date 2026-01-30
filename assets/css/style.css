@@ -56,9 +56,9 @@ header h1 {
 
 .card img.matched {
     box-shadow:
-        0 0 0 3px #4caf50,
-        0 12px 30px rgba(76, 175, 80, 0.4);
-
+        0 0 0 4px #ffb6c1,
+        /* Light pink border - slightly thicker (4px instead of 3px) */ 0 12px
+            30px rgba(255, 182, 193, 0.5); /* Light pink glow with more opacity */
     cursor: default;
     transform: scale(0.95);
 }
