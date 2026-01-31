@@ -203,3 +203,47 @@ function getCardsInBoard(boardEl) {
   return Array.prototype.slice.call(boardEl.querySelectorAll(".card"));
 }
 
+/* Card flip helpers (IMG-based)
+Our CSS applies flip/match styles on the <img>, not the .card div.
+These helpers swap the image between BACK_IMAGE_SRC and the dealt front image,
+and toggle `.flipping` / `.front` classes to trigger the CSS animation. */
+function getImg(cardEl) {
+  return cardEl ? cardEl.querySelector("img") : null;
+}
+
+function setCardBack(cardEl) {
+  var img = getImg(cardEl);
+  if (!img) return;
+
+  img.src = BACK_IMAGE_SRC;
+  img.classList.remove("front");
+  img.classList.remove("flipping");
+}
+
+function setCardFront(cardEl) {
+  var img = getImg(cardEl);
+  if (!img) return;
+
+  img.src = cardEl.dataset.image;
+  img.alt = cardEl.dataset.alt || img.alt;
+  img.classList.add("front");
+}
+
+function flipToFront(cardEl) {
+  var img = getImg(cardEl);
+  if (!img) return;
+
+  img.classList.add("flipping");
+  setTimeout(function () { setCardFront(cardEl); }, 60);
+  setTimeout(function () { img.classList.remove("flipping"); }, FLIP_ANIM_MS);
+}
+
+function flipToBack(cardEl) {
+  var img = getImg(cardEl);
+  if (!img) return;
+
+  img.classList.add("flipping");
+  setTimeout(function () { setCardBack(cardEl); }, 60);
+  setTimeout(function () { img.classList.remove("flipping"); }, FLIP_ANIM_MS);
+}
+
