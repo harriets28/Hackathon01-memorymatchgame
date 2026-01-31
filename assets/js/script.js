@@ -83,6 +83,9 @@ var BOARD_BY_DIFFICULTY = {
   medium: "game-area-2",
   hard: "game-area-3"
 };
+/**/ 
+var FLIP_ANIM_MS = 400;
+
 /*Game State Variables (Global)
 Why these exist:
 - The game needs to remember what’s happening between clicks.
@@ -137,24 +140,22 @@ function shuffleInPlace(arr) {
   return arr; /* returns the same array reference, now shuffled */
 }
 
-
-/* This updates the on-screen stats (Moves/ Matches/Time)
-*/
-function setTextById(primaryId, fallbackId, value) {
-  var el1 = document.getElementById(primaryId);
-  if (el1) { el1.textContent = value; return; }
-  var el2 = document.getElementById(fallbackId);
-  if (el2) el2.textContent = value;
+/*setTextById(id, value)
+Find element by ID and set its visible text content.
+Safe no-op if the element is not found (prevents runtime errors when element is missing).*/ 
+function setTextById(id, value) {
+  var el = document.getElementById(id);
+  if (el) el.textContent = value;
 }
-
+// updateStats()
+// Update on-screen match/move/time stats.
+// - Writes `matches` to #matchesValue
+// - Writes formatted time (MM:SS) to #timeValue  <-- recommended improvement
+// - Writes `moves` to #movesValue
 function updateStats() {
-  setTextById("movesValue", "moves", String(moves));
-  setTextById("matchesValue", "matches", matches + "/" + totalPairs);
-
-  var mins = Math.floor(seconds / 60);
-  var secs = seconds % 60;
-  if (secs < 10) secs = "0" + secs;
-  setTextById("timeValue", "time", mins + ":" + secs);
+  setTextById("matchesValue", String(matches));
+  setTextById("timeValue", String(seconds));
+  setTextById("movesValue", String(moves));
 }
 
 /*Timer control. counts how long the player takes to finish the game, Timer will start on the first card click 
@@ -174,3 +175,4 @@ function stopTimer() {
     timerInterval = null;
   }
 }
+
