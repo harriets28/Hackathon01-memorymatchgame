@@ -297,3 +297,78 @@ function assignDeckToStaticCards(deck, cards) {
     }
   }
 }
+
+/*startGame()
+-Resets the round and sets up the chosen difficulty:
+-reads selected radio (easy/medium/hard)
+-shows the correct static board
+-builds + shuffles the deck, then deals it into the existing card slots
+-resets state (moves/matches/selected cards) and restarts timer/stats */
+function startGame() {
+  var diff = getSelectedDifficulty();
+
+  var board = showBoardForDifficulty(diff);
+  var cards = getCardsInBoard(board);
+
+  var cfg = DIFFICULTY_CONFIG[diff] || DIFFICULTY_CONFIG.easy;
+  if (cards.length !== cfg.cardCount) {
+    console.warn(
+      "Card count mismatch for " + diff + ": HTML has " + cards.length +
+      " cards but config expects " + cfg.cardCount + "."
+    );
+  }
+
+  var deck = buildDeckForDifficulty(diff);
+  assignDeckToStaticCards(deck, cards);
+
+  firstCard = null;
+  secondCard = null;
+  canFlip = true;
+
+  matches = 0;
+  moves = 0;
+
+  seconds = 0;
+  timerRunning = false;
+
+  stopTimer();
+  updateStats();
+}
+
+/*Card click handler:
+Blocks clicks while checking a pair or on already revealed/matched cards
+Starts the timer on the first flip only
+Flips the card (shows front image)
+Stores first + second selection, increments moves, then calls checkMatch() */
+
+function handleCardClick(cardEl) {
+  if (!canFlip) return;
+
+  var img = getImg(cardEl);
+  if (!img) return;
+
+  /* Block clicking already revealed or matched cards */
+  if (img.classList.contains("front")) return;
+  if (img.classList.contains("matched")) return;
+
+  /* Start timer on the very first flip of the round */
+  if (!timerRunning) startTimer();
+
+  /* Flip card to show the front image */
+  cardEl.classList.add("flipped");
+  flipToFront(cardEl);
+
+  /* If this is the first card of the pair, store it and wait */
+  if (firstCard === null) {
+    firstCard = cardEl;
+    return;
+  }
+
+  /* Otherwise this is the second card of the pair */
+  secondCard = cardEl;
+  canFlip = false;
+
+  moves++;
+  updateStats();
+  checkMatch();
+}
