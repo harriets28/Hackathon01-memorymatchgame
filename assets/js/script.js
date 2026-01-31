@@ -176,3 +176,30 @@ function stopTimer() {
   }
 }
 
+/* Board switching (static HTML)
+-Hides all boards with Bootstrap `d-none`, then shows the board that matches
+-the selected difficulty (easy/medium/hard). Also provides a helper to get
+-all `.card` elements inside the active board. */
+function hideAllBoards() {
+  var b1 = document.getElementById("game-area-1");
+  var b2 = document.getElementById("game-area-2");
+  var b3 = document.getElementById("game-area-3");
+
+  if (b1) b1.classList.add("d-none");
+  if (b2) b2.classList.add("d-none");
+  if (b3) b3.classList.add("d-none");
+}
+
+function showBoardForDifficulty(diff) {
+  hideAllBoards();
+  var boardId = BOARD_BY_DIFFICULTY[diff] || "game-area-1";
+  var board = document.getElementById(boardId);
+  if (board) board.classList.remove("d-none");
+  return board;
+}
+
+function getCardsInBoard(boardEl) {
+  if (!boardEl) return [];
+  return Array.prototype.slice.call(boardEl.querySelectorAll(".card"));
+}
+
