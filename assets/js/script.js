@@ -247,3 +247,53 @@ function flipToBack(cardEl) {
   setTimeout(function () { img.classList.remove("flipping"); }, FLIP_ANIM_MS);
 }
 
+/* This function pics the correct difficulty , chooses the required number of images as well as duplicating them. It also shuffles the final deck
+and then returns them*/
+function buildDeckForDifficulty(diff) {
+  var cfg = DIFFICULTY_CONFIG[diff] || DIFFICULTY_CONFIG.easy;
+
+  totalPairs = cfg.cardCount / 2;
+
+  var pool = cfg.assets.slice();
+  shuffleInPlace(pool);
+
+  var chosen = pool.slice(0, totalPairs);
+
+  var deck = [];
+  for (var i = 0; i < chosen.length; i++) {
+    deck.push(chosen[i]);
+    deck.push(chosen[i]);
+  }
+
+  shuffleInPlace(deck);
+  return deck;
+}
+
+/*Deal deck into the static HTML cards
+Saves each card’s identity in dataset (key/src/alt),
+then resets the <img> to the BACK image and clears old state
+(.front/.matched/.flipping) ready for a new round. */
+
+function assignDeckToStaticCards(deck, cards) {
+  var count = Math.min(deck.length, cards.length);
+
+  for (var i = 0; i < count; i++) {
+    var asset = deck[i];
+    var cardEl = cards[i];
+    var img = getImg(cardEl);
+
+    cardEl.dataset.key = asset.key;
+    cardEl.dataset.image = asset.src;
+    cardEl.dataset.alt = asset.alt;
+
+    cardEl.classList.remove("flipped");
+
+    if (img) {
+      img.classList.remove("matched");
+      img.classList.remove("front");
+      img.classList.remove("flipping");
+      img.alt = asset.alt;
+      img.src = BACK_IMAGE_SRC;
+    }
+  }
+}
