@@ -372,3 +372,81 @@ function handleCardClick(cardEl) {
   updateStats();
   checkMatch();
 }
+/* STEP 14: Match checking
+Compares the 2 selected cards (dataset.key).
+If match: mark img as .matched, increment matches, check win.
+If not: flip both cards back after a short delay.
+Always resets selection + unlocks clicking for the next turn. */
+function checkMatch() {
+  /* Compare identity (key is safest; src also works). */
+  var isMatch = firstCard.dataset.key === secondCard.dataset.key;
+
+  if (isMatch) {
+    setTimeout(function () {
+      var img1 = getImg(firstCard);
+      var img2 = getImg(secondCard);
+
+      /* Mark the IMG as matched so your CSS pink border/glow applies */
+      if (img1) img1.classList.add("matched");
+      if (img2) img2.classList.add("matched");
+
+      matches++;
+      updateStats();
+      resetCards();
+
+      /* Win condition */
+      if (matches === totalPairs) {
+        endGame();
+      }
+    }, 250);
+  } else {
+    setTimeout(function () {
+      /* Flip both back to the placeholder image */
+      flipToBack(firstCard);
+      flipToBack(secondCard);
+
+      resetCards();
+    }, 700);
+  }
+}
+
+function resetCards() {
+  firstCard = null;
+  secondCard = null;
+  canFlip = true;
+}
+
+/* End game + modal
+Stops the timer, writes final stats into the Bootstrap modal spans
+(#matchesValue, #timeValue, #movesValue), then shows #staticBackdrop. */
+
+function endGame() {
+  stopTimer();
+
+  /* Write final stats into the modal spans (your HTML uses these IDs) */
+  var matchesEl = document.getElementById("matchesValue");
+  var timeEl = document.getElementById("timeValue");
+  var movesEl = document.getElementById("movesValue");
+
+  if (matchesEl) matchesEl.textContent = String(matches);
+  if (timeEl) timeEl.textContent = String(seconds);
+  if (movesEl) movesEl.textContent = String(moves);
+
+  /* Show Bootstrap modal */
+  var modalEl = document.getElementById("staticBackdrop");
+  if (modalEl && window.bootstrap) {
+    var modal = bootstrap.Modal.getOrCreateInstance(modalEl, { backdrop: "static" });
+    modal.show();
+  }
+}
+
+function newGame() {
+  /* Hide the modal if it is open */
+  var modalEl = document.getElementById("staticBackdrop");
+  if (modalEl && window.bootstrap) {
+    var modal = bootstrap.Modal.getOrCreateInstance(modalEl, { backdrop: "static" });
+    modal.hide();
+  }
+
+  startGame();
+}
