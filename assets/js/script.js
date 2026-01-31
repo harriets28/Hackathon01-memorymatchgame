@@ -450,3 +450,41 @@ function newGame() {
 
   startGame();
 }
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  /* Restart button: starts a fresh round on the currently selected difficulty */
+  var restartBtn = document.getElementById("restart");
+  if (restartBtn) {
+    restartBtn.addEventListener("click", startGame);
+  }
+
+  /* Difficulty radios: changing difficulty re-deals and shows the correct board */
+  var radios = document.querySelectorAll('input[name="difficulty"]');
+  for (var i = 0; i < radios.length; i++) {
+    radios[i].addEventListener("change", startGame);
+  }
+
+  /* Modal "Play again" button: hide modal (if open) + start a new round */
+  var playAgainBtn = document.querySelector(".play-again");
+  if (playAgainBtn) {
+    playAgainBtn.addEventListener("click", newGame);
+  }
+
+  /* Attach click listeners to ALL static cards across all boards */
+  var allCards = document.querySelectorAll(
+    "#game-area-1 .card, #game-area-2 .card, #game-area-3 .card"
+  );
+
+  for (var c = 0; c < allCards.length; c++) {
+    (function (cardEl) {
+      cardEl.addEventListener("click", function () {
+        handleCardClick(cardEl);
+      });
+    })(allCards[c]);
+  }
+
+  /* Start first round immediately (easy is checked by default in your HTML) */
+  startGame();
+});
