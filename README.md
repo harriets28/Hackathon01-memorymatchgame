@@ -1,8 +1,10 @@
 # Hackathon01-memorymatchgame
 Simple Memory Match Game - Javascript
-This is a Memory Match Game fabricated with HTML, CSS, Bootstrap & JavaScript. The website is easy to navigate and is visually appealing ti incite interest from participants. In this simple Memory Match Game project, the game utilised some of the more intermediate advanced parts of the Document Object Model or the Javascript DOM to highlight how to build this web application.
+This is a Memory Match Game fabricated with HTML, CSS, Bootstrap & JavaScript. The website is easy to navigate and is visually appealing to incite interest from participants. In this simple Memory Match Game project, the game utilised some intermediate to advanced parts of Document Object Model or the Javascript DOM to highlight how to build this web application.
 
 The Memory Match game developed by the group relied on simple mechanics and durable, consistent components. The core "must-haves" ensured scalability and engagement for players of all ages. The core "should-haves" ensured the backs of the cards were completely identical, with no markings, scratches, or wear that allow players to identify them. The "could-haves" included using cards with educational and interactive themes and using a time limit to increase difficulty.
+
+Deploying a building-block HTML application—ranging from simple fixed pages to complex single-page applications (SPAs) follows a structured workflow that transitions code from a local environment to a live server accessible via a domain. Preparation and Build Stage before deployment ensured that the application was "production-ready". The webpage was deployed through GitHub Pages, an accessible website that is straightforward for hosting directly from a repository.
 
 ## Project Must-Haves
 Essential Gameplay Elements
@@ -11,10 +13,10 @@ Scalability: The game allows for selecting difficulty by clicking "Easy", "Mediu
 Immediate Feedback: If a match is not made, the cards flip back over in the same spot, allowing players to remember their location.
 Turn Mechanics: If a player makes a match, they should be rewarded with a congratulatory message . 
 Uniform Size: All cards are resized to the exact same size to avoid identifying them by shape.
-Identical Pair Pictures: Used online pictures to create two identical images for each pair.
-Identical Card Backs: To ensure interesting gameplay, the backs of the cards are identical so no card can be identified while face down.
+Identical Pair Pictures: Use of online pictures to create two identical images for each pair.
+Identical Card Backs: To ensure interesting gameplay, the backs of the cards are identical such that cards are unidentifiable while face down.
 Use of buttons: Buttons are included to allow frequent clicking and handling, especially by children.
-Clear, Distinct Imagery: Images are easy to distinguish from one another to help with recognition and memory.
+Clear and Distinct Imagery: Images are easy to distinguish from one another to help with recognition and memory.
 
 ### Project Should-Haves
 Identical Backs: The most important rule is that all cards must look identical on the back to prevent identifying specific cards while face down.
