@@ -486,9 +486,25 @@ function startGame() {
     var deck = buildDeckForDifficulty(diff);
     assignDeckToStaticCards(deck, cards);
 
+    // Initial reveal: show all card fronts for 3 seconds, then flip back and allow play.
+    // Block user clicks while we reveal the board so they can't start early.
+    canFlip = false;
+    if (cards && cards.length > 0) {
+        for (var i = 0; i < cards.length; i++) {
+            flipToFront(cards[i]);
+        }
+        setTimeout(function () {
+            for (var j = 0; j < cards.length; j++) {
+                flipToBack(cards[j]);
+            }
+            canFlip = true;
+        }, 3000);
+    } else {
+        canFlip = true;
+    }
+
     firstCard = null;
     secondCard = null;
-    canFlip = true;
 
     matches = 0;
     moves = 0;
