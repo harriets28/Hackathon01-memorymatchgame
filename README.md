@@ -1,50 +1,181 @@
-# Hackathon01-memorymatchgame
-Simple Memory Match Game - Javascript
-This is a Memory Match Game fabricated with HTML, CSS, Bootstrap & JavaScript. The website is easy to navigate and is visually appealing ti incite interest from participants. In this simple Memory Match Game project, the game utilised some of the more intermediate advanced parts of the Document Object Model or the Javascript DOM to highlight how to build this web application.
+# 🃏 Match That Card! - Memory Matching Game
 
-The Memory Match game developed by the group relied on simple mechanics and durable, consistent components. The core "must-haves" ensured scalability and engagement for players of all ages. The core "should-haves" ensured the backs of the cards were completely identical, with no markings, scratches, or wear that allow players to identify them. The "could-haves" included using cards with educational and interactive themes and using a time limit to increase difficulty.
+## Table of Contents
 
-## Must-Haves
-Essential Gameplay Elements
-Simple Instructions: The instructions are easy to understand: match a pair of cards to win.
-Scalability: The game allows for selecting difficulty by clicking "Easy", "Medium" and "Hard" using fewer or more pairs, making it suitable for different ages.
-Immediate Feedback: If a match is not made, the cards flip back over in the same spot, allowing players to remember their location.
-Turn Mechanics: If a player makes a match, they should be rewarded with a congratulatory message . 
-Uniform Size: All cards are resized to the exact same size to avoid identifying them by shape.
-Identical Pair Pictures: Used online pictures to create two identical images for each pair.
-Identical Card Backs: To ensure interesting gameplay, the backs of the cards are identical so no card can be identified while face down.
-Use of buttons: Buttons are included to allow frequent clicking and handling, especially by children.
-Clear, Distinct Imagery: Images are easy to distinguish from one another to help with recognition and memory.
+- [Overview](#overview)
+- [Features](#features)
+- [User Value](#user-value)
+- [Screenshots & Demo](#screenshots--demo)
+- [Deployment Procedure](#deployment-procedure)
+- [UX Design Process](#ux-design-process)
+- [External Code Attribution](#external-code-attribution)
+- [AI-Assisted Development Reflection](#ai-assisted-development-reflection)
+- [Contributors] (#contributors)
 
-### Should-Haves
+## Overview
 
+**Match That Card!** is an engaging, browser-based memory matching game built with HTML, CSS, and JavaScript. The game challenges players to find matching pairs of cards across five difficulty levels, from Novice (2 pairs) to Impossible (10 pairs). The application features responsive design, smooth card-flip animations, and comprehensive game statistics tracking.
 
-#### Could-Haves
+## Features
 
-##### Features
-The Memory Match Game can be played by one player at a time.
-To get the Memory Match Game correct and win, Users locate and match all pairs of the cards.
-Cards are arranged facing down in a grid in 8s, 12s and 16s in accordance with difficulty.
-Every single card included had a distinct, matching counterpart with clear and contrasting images.
-Users can turn cards by clicking a button to view images in attempt to find a matching pair.
-The turned cards remain open for the duration of the Memory Match Game.
-Users should recall the images from last turns through memory-driven mechanics.
-The memory match game displays images, number of moves along with a timer to highlight the amount of time the Users take to play the game.
-The images remain in starting positions till the Users turn the cards and cannot be switched around.
-The memory match card game contains the ability to enhance cognitive skills such as focus and visual recall.
+- **Five Difficulty Levels**: Novice (4 cards), Easy (8 cards), Medium (12 cards), Hard (16 cards), Impossible (20 cards)
+- **Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices
+- **Visual Feedback**: Smooth card-flip animations with CSS transitions
+- **Game Statistics**: Tracks matches, moves, and completion time
+- **Win Modal**: Displays performance summary upon game completion
+- **Restart Functionality**: Instant game reset without page refresh
+- **Accessibility**: Proper alt text for all card images
 
-###### The Memory Match Game is built with:
+## User Value
 
-HTML
-CSS
-Bootstrap
-JavaScript
+- **Cognitive Training**: Enhances memory, concentration, and pattern recognition skills
+- **Progressive Challenge**: Gradual difficulty increase allows players to build skills
+- **Stress Relief**: Engaging gameplay provides a mental break
+- **Universal Accessibility**: No installation required - play directly in any modern browser
+- **Performance Tracking**: Self-improvement through providing game completion time information
+- **Family-Friendly**: Suitable for all ages with intuitive controls
 
-######## How To View The Project
-View the deployed website @https://github.com/harriets28/Hackathon01-memorymatchgame.
+## Screenshots & Demo
 
+### Main Game Interface
 
+![Game Interface](assets/screenshots/game-interface.png)
+_The clean game interface showing card layout and difficulty selection. The intuitive design allows immediate play with clear visual hierarchy._
 
-########## Credits
-The background pictures were taken from website name.
-Thank you to mentoring coding tutors for their patience and support as the group articulated this project.
+### Difficulty Selection
+
+![Difficulty Levels](assets/screenshots/difficulty-selection.png)
+_Five difficulty levels with distinct visual feedback. Selected difficulty shows prominent highlighting for clear user orientation._
+
+### Winning Screen
+
+![Win Modal](assets/screenshots/win-modal.png)
+_Completion modal displaying performance statistics. Players can review their performance and quickly start a new game._
+
+### Mobile Responsiveness
+
+![Mobile View](assets/screenshots/mobile-view.png)
+_Optimized mobile experience with touch-friendly card sizing and adapted layout for smaller screens._
+
+### Card Matching
+
+![Matching Cards](assets/screenshots/card-matching.png)
+_Visual feedback for matched cards with pink glow effects, providing clear success indicators during gameplay._
+
+## Deployment Procedure
+
+### Live Deployment
+
+The game is deployed and accessible at: [Your Live URL Here]
+
+### Local Deployment Instructions
+
+1. **Clone or Download the Repository**
+    ```bash
+    git clone [your-repository-url]
+    cd memory-match-game
+    ```
+
+## UX Design Process
+
+### Design Evolution
+
+1. **Initial Concept**: Basic grid layout with minimal styling
+2. **Iteration 1**: Added difficulty selector and game statistics
+3. **Iteration 2**: Implemented card flip animations and visual feedback
+4. **Final Design**: Polished UI with responsive adjustments and accessibility features
+
+### Key Design Decisions
+
+- **Card Sizing**: Dynamic sizing based on difficulty level to maintain playability
+- **Color Scheme**: High contrast colors for accessibility with calming background. _Selected color palette using soft blues and pinks for visual appeal without overwhelming the user._
+- **Feedback Systems**: Immediate visual feedback for all user actions
+- **Mobile First**: Designed for mobile then enhanced for desktop
+
+## External Code Attribution
+
+### Bootstrap 5.3.8
+
+- **Usage**: Modal component and responsive grid system
+- **License**: MIT License
+- **Source**: https://getbootstrap.com/
+- **Implementation**: Used for modal dialog and layout structure
+
+### Codynn Labs - Memory Game Tutorial
+
+- **Usage**: Game structure and core logic inspiration
+- **Source**: https://codynn.com/labs/create/68ff6904bfe949566d4f4bc7
+- **Note**: Used as reference for basic memory game mechanics and structure
+
+### Freepik
+
+- **Usage**: Card images and visual assets
+- **Source**: https://www.freepik.com/
+- **Assets Used**:
+    - Fruit card images (Banana, Kiwi, Orange, Strawberry)
+    - People/character card images
+    - Cat and dog card images
+    - Flower card images for Impossible level
+    - Favicon and card back design
+- **License**: Freepik Free License with attribution
+- **Note**: All images were modified and adapted for game use
+
+## AI-Assisted Development Reflection
+
+### Our Approach to AI Collaboration
+
+We maintained **full creative control and design ownership** throughout this project, using AI tools as implementation assistants rather than creative partners. This approach ensured all design decisions, game mechanics, and user experience elements remained true to our original vision while benefiting from AI's technical capabilities.
+
+### Strategic AI Integration
+
+#### 6.1 AI as Implementation Assistant
+
+We used AI to translate our design decisions into working code:
+
+- **Our Design**: Created the five difficulty levels and progression system
+- **AI's Implementation**: Helped structure the scalable configuration system
+- **Our Logic**: Designed the complete game flow and matching mechanics
+- **AI's Code**: Assisted in writing core functions and game state management
+
+#### 6.2 AI-Powered Debugging
+
+When we identified technical challenges, AI helped find solutions:
+
+- **Animation Conflicts**: We noticed issues with hover effects during flips
+- **AI's Solutions**: Suggested CSS priority systems and timing adjustments
+- **Mobile Responsiveness**: Our requirement for consistent play across devices
+- **AI's Fixes**: Provided responsive design patterns and sizing calculations
+
+#### 6.3 Performance & UX Optimization
+
+We established clear requirements and used AI to achieve them:
+
+- **Our Standards**: Smooth animations, fast loading, mobile-friendly design
+- **AI's Techniques**: Suggested optimization strategies and implementation patterns
+- **Our Validation**: Tested all suggestions against our quality benchmarks
+
+#### 6.4 Workflow Enhancement
+
+AI transformed our development process while preserving our creative direction:
+
+- **Efficiency**: Faster implementation of complex features
+- **Focus**: Allowed us to concentrate on creative design and user experience
+- **Quality**: Assisted in maintaining consistent code quality throughout
+
+### Our AI Collaboration Philosophy
+
+1. **Human-Led Design**: All creative decisions originated from our team
+2. **AI-Assisted Implementation**: Used for technical execution of our ideas
+3. **Selective Adoption**: Evaluated every suggestion against our design goals
+4. **Quality Control**: All AI-generated code underwent thorough review
+
+### Key Learning
+
+The most valuable aspect was AI's ability to handle technical implementation details while we maintained complete creative control. This partnership allowed us to focus on what matters most: creating an engaging, well-designed user experience.
+
+## Contributors
+
+- Aklak
+- Dominique
+- Harriet
+- Tendayi
