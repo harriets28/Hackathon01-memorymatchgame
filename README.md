@@ -10,7 +10,7 @@
 - [UX Design Process](#ux-design-process)
 - [External Code Attribution](#external-code-attribution)
 - [AI-Assisted Development Reflection](#ai-assisted-development-reflection)
-- [Contributors] (#contributors)
+- [Contributors](#contributors)
 
 ## Overview
 
@@ -39,27 +39,29 @@
 
 ### Main Game Interface
 
-![Game Interface](assets/screenshots/game-interface.png)
+![Game Interface](assets/images/screenshots/gameinterface.png)
 _The clean game interface showing card layout and difficulty selection. The intuitive design allows immediate play with clear visual hierarchy._
 
 ### Difficulty Selection
 
-![Difficulty Levels](assets/screenshots/difficulty-selection.png)
+![Difficulty Levels](assets/images/screenshots/difficultyselector.png)
 _Five difficulty levels with distinct visual feedback. Selected difficulty shows prominent highlighting for clear user orientation._
 
 ### Winning Screen
 
-![Win Modal](assets/screenshots/win-modal.png)
+![Win Modal](assets/images/screenshots/winmodal.png)
 _Completion modal displaying performance statistics. Players can review their performance and quickly start a new game._
 
 ### Mobile Responsiveness
 
-![Mobile View](assets/screenshots/mobile-view.png)
+![Mobile View 1](assets/images/screenshots/mobileview1.png)  
+![Mobile View 2](assets/images/screenshots/mobileview2.png)
+
 _Optimized mobile experience with touch-friendly card sizing and adapted layout for smaller screens._
 
 ### Card Matching
 
-![Matching Cards](assets/screenshots/card-matching.png)
+![Matching Cards](assets/images/screenshots/matchingpair.png)
 _Visual feedback for matched cards with pink glow effects, providing clear success indicators during gameplay._
 
 ## Deployment Procedure
@@ -70,11 +72,13 @@ The game is deployed and accessible at: [Your Live URL Here]
 
 ### Local Deployment Instructions
 
-1. **Clone or Download the Repository**
-    ```bash
-    git clone [your-repository-url]
-    cd memory-match-game
-    ```
+The game is deployed and accessible at:(https://harriets28.github.io/Hackathon01-memorymatchgame/)
+
+**Clone or Download the Repository**
+`bash
+    git clone https://github.com/harriets28/Hackathon01-memorymatchgame.git
+    cd Hackathon01-memorymatchgame
+    `
 
 ## UX Design Process
 
