@@ -83,6 +83,9 @@ var BOARD_BY_DIFFICULTY = {
   medium: "game-area-2",
   hard: "game-area-3"
 };
+/**/ 
+var FLIP_ANIM_MS = 400;
+
 /*Game State Variables (Global)
 Why these exist:
 - The game needs to remember what’s happening between clicks.
@@ -137,24 +140,22 @@ function shuffleInPlace(arr) {
   return arr; /* returns the same array reference, now shuffled */
 }
 
-
-/* This updates the on-screen stats (Moves/ Matches/Time)
-*/
-function setTextById(primaryId, fallbackId, value) {
-  var el1 = document.getElementById(primaryId);
-  if (el1) { el1.textContent = value; return; }
-  var el2 = document.getElementById(fallbackId);
-  if (el2) el2.textContent = value;
+/*setTextById(id, value)
+Find element by ID and set its visible text content.
+Safe no-op if the element is not found (prevents runtime errors when element is missing).*/ 
+function setTextById(id, value) {
+  var el = document.getElementById(id);
+  if (el) el.textContent = value;
 }
-
+// updateStats()
+// Update on-screen match/move/time stats.
+// - Writes `matches` to #matchesValue
+// - Writes formatted time (MM:SS) to #timeValue  <-- recommended improvement
+// - Writes `moves` to #movesValue
 function updateStats() {
-  setTextById("movesValue", "moves", String(moves));
-  setTextById("matchesValue", "matches", matches + "/" + totalPairs);
-
-  var mins = Math.floor(seconds / 60);
-  var secs = seconds % 60;
-  if (secs < 10) secs = "0" + secs;
-  setTextById("timeValue", "time", mins + ":" + secs);
+  setTextById("matchesValue", String(matches));
+  setTextById("timeValue", String(seconds));
+  setTextById("movesValue", String(moves));
 }
 
 /*Timer control. counts how long the player takes to finish the game, Timer will start on the first card click 
@@ -174,3 +175,316 @@ function stopTimer() {
     timerInterval = null;
   }
 }
+
+/* Board switching (static HTML)
+-Hides all boards with Bootstrap `d-none`, then shows the board that matches
+-the selected difficulty (easy/medium/hard). Also provides a helper to get
+-all `.card` elements inside the active board. */
+function hideAllBoards() {
+  var b1 = document.getElementById("game-area-1");
+  var b2 = document.getElementById("game-area-2");
+  var b3 = document.getElementById("game-area-3");
+
+  if (b1) b1.classList.add("d-none");
+  if (b2) b2.classList.add("d-none");
+  if (b3) b3.classList.add("d-none");
+}
+
+function showBoardForDifficulty(diff) {
+  hideAllBoards();
+  var boardId = BOARD_BY_DIFFICULTY[diff] || "game-area-1";
+  var board = document.getElementById(boardId);
+  if (board) board.classList.remove("d-none");
+  return board;
+}
+
+function getCardsInBoard(boardEl) {
+  if (!boardEl) return [];
+  return Array.prototype.slice.call(boardEl.querySelectorAll(".card"));
+}
+
+/* Card flip helpers (IMG-based)
+Our CSS applies flip/match styles on the <img>, not the .card div.
+These helpers swap the image between BACK_IMAGE_SRC and the dealt front image,
+and toggle `.flipping` / `.front` classes to trigger the CSS animation. */
+function getImg(cardEl) {
+  return cardEl ? cardEl.querySelector("img") : null;
+}
+
+function setCardBack(cardEl) {
+  var img = getImg(cardEl);
+  if (!img) return;
+
+  img.src = BACK_IMAGE_SRC;
+  img.classList.remove("front");
+  img.classList.remove("flipping");
+}
+
+function setCardFront(cardEl) {
+  var img = getImg(cardEl);
+  if (!img) return;
+
+  img.src = cardEl.dataset.image;
+  img.alt = cardEl.dataset.alt || img.alt;
+  img.classList.add("front");
+}
+
+function flipToFront(cardEl) {
+  var img = getImg(cardEl);
+  if (!img) return;
+
+  img.classList.add("flipping");
+  setTimeout(function () { setCardFront(cardEl); }, 60);
+  setTimeout(function () { img.classList.remove("flipping"); }, FLIP_ANIM_MS);
+}
+
+function flipToBack(cardEl) {
+  var img = getImg(cardEl);
+  if (!img) return;
+
+  img.classList.add("flipping");
+  setTimeout(function () { setCardBack(cardEl); }, 60);
+  setTimeout(function () { img.classList.remove("flipping"); }, FLIP_ANIM_MS);
+}
+
+/* This function pics the correct difficulty , chooses the required number of images as well as duplicating them. It also shuffles the final deck
+and then returns them*/
+function buildDeckForDifficulty(diff) {
+  var cfg = DIFFICULTY_CONFIG[diff] || DIFFICULTY_CONFIG.easy;
+
+  totalPairs = cfg.cardCount / 2;
+
+  var pool = cfg.assets.slice();
+  shuffleInPlace(pool);
+
+  var chosen = pool.slice(0, totalPairs);
+
+  var deck = [];
+  for (var i = 0; i < chosen.length; i++) {
+    deck.push(chosen[i]);
+    deck.push(chosen[i]);
+  }
+
+  shuffleInPlace(deck);
+  return deck;
+}
+
+/*Deal deck into the static HTML cards
+Saves each card’s identity in dataset (key/src/alt),
+then resets the <img> to the BACK image and clears old state
+(.front/.matched/.flipping) ready for a new round. */
+
+function assignDeckToStaticCards(deck, cards) {
+  var count = Math.min(deck.length, cards.length);
+
+  for (var i = 0; i < count; i++) {
+    var asset = deck[i];
+    var cardEl = cards[i];
+    var img = getImg(cardEl);
+
+    cardEl.dataset.key = asset.key;
+    cardEl.dataset.image = asset.src;
+    cardEl.dataset.alt = asset.alt;
+
+    cardEl.classList.remove("flipped");
+
+    if (img) {
+      img.classList.remove("matched");
+      img.classList.remove("front");
+      img.classList.remove("flipping");
+      img.alt = asset.alt;
+      img.src = BACK_IMAGE_SRC;
+    }
+  }
+}
+
+/*startGame()
+-Resets the round and sets up the chosen difficulty:
+-reads selected radio (easy/medium/hard)
+-shows the correct static board
+-builds + shuffles the deck, then deals it into the existing card slots
+-resets state (moves/matches/selected cards) and restarts timer/stats */
+function startGame() {
+  var diff = getSelectedDifficulty();
+
+  var board = showBoardForDifficulty(diff);
+  var cards = getCardsInBoard(board);
+
+  var cfg = DIFFICULTY_CONFIG[diff] || DIFFICULTY_CONFIG.easy;
+  if (cards.length !== cfg.cardCount) {
+    console.warn(
+      "Card count mismatch for " + diff + ": HTML has " + cards.length +
+      " cards but config expects " + cfg.cardCount + "."
+    );
+  }
+
+  var deck = buildDeckForDifficulty(diff);
+  assignDeckToStaticCards(deck, cards);
+
+  firstCard = null;
+  secondCard = null;
+  canFlip = true;
+
+  matches = 0;
+  moves = 0;
+
+  seconds = 0;
+  timerRunning = false;
+
+  stopTimer();
+  updateStats();
+}
+
+/*Card click handler:
+Blocks clicks while checking a pair or on already revealed/matched cards
+Starts the timer on the first flip only
+Flips the card (shows front image)
+Stores first + second selection, increments moves, then calls checkMatch() */
+
+function handleCardClick(cardEl) {
+  if (!canFlip) return;
+
+  var img = getImg(cardEl);
+  if (!img) return;
+
+  /* Block clicking already revealed or matched cards */
+  if (img.classList.contains("front")) return;
+  if (img.classList.contains("matched")) return;
+
+  /* Start timer on the very first flip of the round */
+  if (!timerRunning) startTimer();
+
+  /* Flip card to show the front image */
+  cardEl.classList.add("flipped");
+  flipToFront(cardEl);
+
+  /* If this is the first card of the pair, store it and wait */
+  if (firstCard === null) {
+    firstCard = cardEl;
+    return;
+  }
+
+  /* Otherwise this is the second card of the pair */
+  secondCard = cardEl;
+  canFlip = false;
+
+  moves++;
+  updateStats();
+  checkMatch();
+}
+/* STEP 14: Match checking
+Compares the 2 selected cards (dataset.key).
+If match: mark img as .matched, increment matches, check win.
+If not: flip both cards back after a short delay.
+Always resets selection + unlocks clicking for the next turn. */
+function checkMatch() {
+  /* Compare identity (key is safest; src also works). */
+  var isMatch = firstCard.dataset.key === secondCard.dataset.key;
+
+  if (isMatch) {
+    setTimeout(function () {
+      var img1 = getImg(firstCard);
+      var img2 = getImg(secondCard);
+
+      /* Mark the IMG as matched so your CSS pink border/glow applies */
+      if (img1) img1.classList.add("matched");
+      if (img2) img2.classList.add("matched");
+
+      matches++;
+      updateStats();
+      resetCards();
+
+      /* Win condition */
+      if (matches === totalPairs) {
+        endGame();
+      }
+    }, 250);
+  } else {
+    setTimeout(function () {
+      /* Flip both back to the placeholder image */
+      flipToBack(firstCard);
+      flipToBack(secondCard);
+
+      resetCards();
+    }, 700);
+  }
+}
+
+function resetCards() {
+  firstCard = null;
+  secondCard = null;
+  canFlip = true;
+}
+
+/* End game + modal
+Stops the timer, writes final stats into the Bootstrap modal spans
+(#matchesValue, #timeValue, #movesValue), then shows #staticBackdrop. */
+
+function endGame() {
+  stopTimer();
+
+  /* Write final stats into the modal spans (your HTML uses these IDs) */
+  var matchesEl = document.getElementById("matchesValue");
+  var timeEl = document.getElementById("timeValue");
+  var movesEl = document.getElementById("movesValue");
+
+  if (matchesEl) matchesEl.textContent = String(matches);
+  if (timeEl) timeEl.textContent = String(seconds);
+  if (movesEl) movesEl.textContent = String(moves);
+
+  /* Show Bootstrap modal */
+  var modalEl = document.getElementById("staticBackdrop");
+  if (modalEl && window.bootstrap) {
+    var modal = bootstrap.Modal.getOrCreateInstance(modalEl, { backdrop: "static" });
+    modal.show();
+  }
+}
+
+function newGame() {
+  /* Hide the modal if it is open */
+  var modalEl = document.getElementById("staticBackdrop");
+  if (modalEl && window.bootstrap) {
+    var modal = bootstrap.Modal.getOrCreateInstance(modalEl, { backdrop: "static" });
+    modal.hide();
+  }
+
+  startGame();
+}
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  /* Restart button: starts a fresh round on the currently selected difficulty */
+  var restartBtn = document.getElementById("restart");
+  if (restartBtn) {
+    restartBtn.addEventListener("click", startGame);
+  }
+
+  /* Difficulty radios: changing difficulty re-deals and shows the correct board */
+  var radios = document.querySelectorAll('input[name="difficulty"]');
+  for (var i = 0; i < radios.length; i++) {
+    radios[i].addEventListener("change", startGame);
+  }
+
+  /* Modal "Play again" button: hide modal (if open) + start a new round */
+  var playAgainBtn = document.querySelector(".play-again");
+  if (playAgainBtn) {
+    playAgainBtn.addEventListener("click", newGame);
+  }
+
+  /* Attach click listeners to ALL static cards across all boards */
+  var allCards = document.querySelectorAll(
+    "#game-area-1 .card, #game-area-2 .card, #game-area-3 .card"
+  );
+
+  for (var c = 0; c < allCards.length; c++) {
+    (function (cardEl) {
+      cardEl.addEventListener("click", function () {
+        handleCardClick(cardEl);
+      });
+    })(allCards[c]);
+  }
+
+  /* Start first round immediately (easy is checked by default in your HTML) */
+  startGame();
+});
