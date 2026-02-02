@@ -21,7 +21,7 @@ header h1 {
 }
 
 /* Card styling */
-.card {
+.card{
     background: transparent;
     border: none;
     padding: 0.75rem;
@@ -49,10 +49,24 @@ header h1 {
     transform: rotateY(180deg);
 }
 
-.card img.front {
+#game-area-0 .card img.front {
     background: #fff;
     padding: 1.2rem;
 }
+
+#game-area-1 .card img.front,
+#game-area-2 .card img.front,
+#game-area-3 .card img.front {
+    background: #fff;
+    padding: 1rem;
+}
+
+#game-area-4 .card img.front {
+    background: #fff;
+    padding: 0.5rem;
+}
+
+
 
 .card img.matched {
     box-shadow:
@@ -291,11 +305,11 @@ header h1 {
     }
 
     .card img {
-        padding: 1rem;
+        padding: 0.5rem;
     }
 
     .card img.front {
-        padding: 1.1rem;
+        padding: 0.5rem;
     }
 
     /* Impossible level on large screens */
