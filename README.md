@@ -1,6 +1,6 @@
 # Hackathon01-memorymatchgame
 Simple Memory Match Game - Javascript
-The project purpose was to devise a Memory Match Game fabricated with HTML, CSS, Bootstrap & JavaScript. For debugging the code, Python Debugger extension was utilised. The outcome was a website that is easy to navigate and is visually appealing to incite interest from participants. In this simple Memory Match Game project, the game utilised some of the more intermediate to advanced parts of Document Object Model or the Javascript DOM to highlight how to build this web application.
+The project purpose was to devise a Memory Match Game fabricated with HTML, CSS, Bootstrap & JavaScript. The Memory Card Game was selected since the game is a childhood memory that the project group knew about. For debugging the code, Python Debugger extension was utilised. The outcome was a website that is easy to navigate and is visually appealing to incite interest from participants. In this simple Memory Match Game project, the game utilised some of the more intermediate to advanced parts of Document Object Model or the Javascript DOM to highlight how to build this web application.
 
 The Memory Match game developed by the group relied on simple mechanics and durable, consistent components. The core "must-haves" ensured scalability and engagement for players of all ages. The core "should-haves" ensured the backs of the cards were completely identical, with no markings, scratches, or wear that allow players to identify them. The "could-haves" included using cards with educational and interactive themes.
 
