@@ -1,6 +1,6 @@
 # Hackathon01-memorymatchgame
 Simple Memory Match Game - Javascript
-This is a Memory Match Game fabricated with HTML, CSS, Bootstrap & JavaScript. The website is easy to navigate and is visually appealing ti incite interest from participants. In this simple Memory Match Game project, the game utilised some of the more intermediate advanced parts of the Document Object Model or the Javascript DOM to highlight how to build this web application.
+This is a Memory Match Game fabricated with HTML, CSS, Bootstrap & JavaScript. The website is easy to navigate and is visually appealing to incite interest from participants. In this simple Memory Match Game project, the game utilised some of the more intermediate advanced parts of the Document Object Model or the Javascript DOM to highlight how to build this web application.
 
 The Memory Match game developed by the group relied on simple mechanics and durable, consistent components. The core "must-haves" ensured scalability and engagement for players of all ages. The core "should-haves" ensured the backs of the cards were completely identical, with no markings, scratches, or wear that allow players to identify them. The "could-haves" included using cards with educational and interactive themes and using a time limit to increase difficulty.
 
