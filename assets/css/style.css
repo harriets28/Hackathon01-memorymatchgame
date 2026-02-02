@@ -92,10 +92,9 @@ header h1 {
     background-color: #ff6f91;
     color: white;
     border-color: #ff6f91;
-    /* White border creates separation from ombre bg */
     box-shadow:
         inset 0 0 0 2px white,
-        /* Inner white border */ 0 0 0 3px white,
+        0 0 0 3px white,
         0 0 12px 4px rgba(255, 111, 145, 0.8);
 }
 
@@ -230,4 +229,77 @@ header h1 {
 .play-again:active {
     transform: translateY(-1px);
     background-color: #d8dbff;
+}
+
+/* Better solution: Use flexbox to ensure images fill cards properly */
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80px; /* Ensure cards have minimum height */
+}
+
+.card img {
+    width: 90%; /* Use 90% instead of 100% to account for padding */
+    height: 90%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    padding: 0.75rem; /* Slightly reduce default padding */
+    transition: all 0.3s ease;
+}
+
+.card img.front {
+    padding: 0.85rem; /* Slightly more for front images */
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .card {
+        min-height: 80px; /* Increased from 70px */
+    }
+
+    .card img {
+        padding: 0.3rem; /* Reduced from 0.5rem */
+        width: 95%; /* Increased from 85% */
+        height: 95%; /* Added this */
+    }
+
+    .card img.front {
+        padding: 0.4rem; /* Reduced from 0.6rem */
+    }
+
+    /* For impossible level with 20 cards */
+    #game-area-4 .card {
+        min-height: 75px; /* Increased from 65px */
+    }
+
+    #game-area-4 .card img {
+        padding: 0.25rem; /* Reduced from 0.4rem */
+        width: 92%; /* Increased from 80% */
+        height: 92%; /* Added this */
+    }
+
+    #game-area-4 .card img.front {
+        padding: 0.35rem; /* Add this for impossible front images */
+    }
+}
+
+/* Large screen adjustments */
+@media (min-width: 992px) {
+    .card {
+        min-height: 120px;
+    }
+
+    .card img {
+        padding: 1rem;
+    }
+
+    .card img.front {
+        padding: 1.1rem;
+    }
+
+    /* Impossible level on large screens */
+    #game-area-4 .card {
+        min-height: 110px;
+    }
 }
