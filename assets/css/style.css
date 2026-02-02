@@ -317,3 +317,17 @@ header h1 {
         min-height: 110px;
     }
 }
+
+/* Fix flip vs hover conflict */
+.card {
+    perspective: 1000px;
+}
+
+/* Override the hover transform during flip */
+.card img.flipping {
+    transform: rotateY(90deg) !important;
+}
+
+.card img.front {
+    transform: rotateY(180deg) !important;
+}
