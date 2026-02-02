@@ -37,32 +37,46 @@
 
 ## Screenshots & Demo
 
-### Main Game Interface
+<details>
+  <summary><strong>Main Game Interface</strong></summary>
+  <br>
 
 ![Game Interface](assets/images/screenshots/gameinterface.png)
-_The clean game interface showing card layout and difficulty selection. The intuitive design allows immediate play with clear visual hierarchy._
 
-### Difficulty Selection
+_The clean game interface showing card layout and difficulty selection._
+
+</details>
+
+<details>
+  <summary><strong>Difficulty Selection</strong></summary>
+  <br>
 
 ![Difficulty Levels](assets/images/screenshots/difficultyselector.png)
-_Five difficulty levels with distinct visual feedback. Selected difficulty shows prominent highlighting for clear user orientation._
 
-### Winning Screen
+_Five difficulty levels with distinct visual feedback._
+
+</details>
+
+<details>
+  <summary><strong>Winning Screen</strong></summary>
+  <br>
 
 ![Win Modal](assets/images/screenshots/winmodal.png)
-_Completion modal displaying performance statistics. Players can review their performance and quickly start a new game._
 
-### Mobile Responsiveness
+_Completion modal displaying performance statistics._
 
-![Mobile View 1](assets/images/screenshots/mobileview1.png)  
+</details>
+
+<details>
+  <summary><strong>Mobile Responsiveness</strong></summary>
+  <br>
+
+![Mobile View 1](assets/images/screenshots/mobileview1.png)
 ![Mobile View 2](assets/images/screenshots/mobileview2.png)
 
-_Optimized mobile experience with touch-friendly card sizing and adapted layout for smaller screens._
+_Optimized mobile experience for touch devices._
 
-### Card Matching
-
-![Matching Cards](assets/images/screenshots/matchingpair.png)
-_Visual feedback for matched cards with pink glow effects, providing clear success indicators during gameplay._
+</details>
 
 ## Deployment Procedure
 

@@ -498,7 +498,7 @@ function startGame() {
                 flipToBack(cards[j]);
             }
             canFlip = true;
-        }, 3000);
+        }, 800);
     } else {
         canFlip = true;
     }
