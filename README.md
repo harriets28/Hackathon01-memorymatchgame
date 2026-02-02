@@ -5,9 +5,11 @@ The project purpose was to devise a Memory Match Game fabricated with HTML, CSS,
 The Memory Match game developed by the group relied on simple mechanics and durable, consistent components. The core "must-haves" ensured scalability and engagement for players of all ages. The core "should-haves" ensured the backs of the cards were completely identical, with no markings, scratches, or wear that allow players to identify them. The "could-haves" included using cards with educational and interactive themes.
 
 ## Deployment of the Project
-Deploying a building-block HTML application—ranging from simple fixed pages to complex single-page applications (SPAs) follows a structured workflow that transitions code from four local environments owned by each group member to a live server accessible via a domain. The group followed GitHub command lines using VS Code to push information to a main branch in GitHub. The main branch was owned by one individual to accept changes before the rest of the group pull in the most up to date information to local folders. Work was monitored using a project`s Issues Template GitHub. The Project Template on GitHub highlights "To do", "In-Progress" and "Done" User Stories of the Memory Match Card Game. Preparation and build stages before deployment ensured that the application was "production-ready". The webpage was deployed through GitHub Pages, an accessible website that is free-of-charge and straightforward for hosting directly from a repository. The webpage was deployed on Day 3. 
+Deploying a building-block HTML application—ranging from simple fixed pages to complex single-page applications (SPAs) follows a structured workflow that transitions code from four local environments owned by each group member to a live server accessible via a domain.  The webpage was deployed through GitHub Pages, an accessible website that is free-of-charge and straightforward for hosting directly from a repository. The webpage was deployed on Day 3. 
 
-### Project Must-Haves
+The group entered GitHub command lines on VS Code to push information to a main branch in GitHub. Before deploying the project, the group local environments remained up to date by pulling and pushing information to the main branch owned by one individual. The one individual had to receive validation from the group members when his work branch required approval. Work was monitored using a project`s Issues Template on GitHub. The Project Template on GitHub highlights "To do", "In-Progress" and "Done" User Stories of the Memory Match Card Game. Preparation and build stages before deployment ensured that the application was "production-ready". 
+
+### Project Must-haves
 Essential Gameplay Elements
 Simple Instructions: The instructions are easy to understand: match a pair of cards to win.
 Scalability: The game allows for selecting difficulty by clicking "Easy", "Medium" and "Hard" using fewer or more pairs, making it suitable for different ages.
@@ -60,8 +62,7 @@ Bootstrap
 JavaScript
 
 ######### How To View The Project
-View the deployed website @https://github.com/harriets28/Hackathon01-memorymatchgame.
+The project was deployed through GitHub Pages. View the deployed website on https://github.com/harriets28/Hackathon01-memorymatchgame.
 
 ########### Credits
-The background pictures were taken from website name.
 Thank you to mentoring coding tutors for their patience and support as the group articulated this project.
