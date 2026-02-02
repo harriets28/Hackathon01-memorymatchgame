@@ -32,22 +32,55 @@
         <div class="section container-fluid text-center" id="difficulty-selectors">
             <div class="row">
                 <div id="difficulty">
-                    <input type="radio" class="btn-check" id="easy" name="difficulty" checked>
+                    <input type="radio" class="btn-check mb-1" id="novice" name="difficulty" checked>
+                    <label class="btn btn-primary" for="novice">Novice</label>
+
+                    <input type="radio" class="btn-check mb-1" id="easy" name="difficulty" checked>
                     <label class="btn btn-primary" for="easy">Easy</label>
 
-                    <input type="radio" class="btn-check" id="medium" name="difficulty">
+                    <input type="radio" class="btn-check mb-1" id="medium" name="difficulty">
                     <label class="btn btn-primary" for="medium">Medium</label>
 
-                    <input type="radio" class="btn-check" id="hard" name="difficulty">
+                    <input type="radio" class="btn-check mb-1" id="hard" name="difficulty">
                     <label class="btn btn-primary" for="hard">Hard</label>
+
+                    <input type="radio" class="btn-check mb-1" id="impossible" name="difficulty" checked>
+                    <label class="btn btn-primary" for="impossible">Impossible</label>
                 </div>
             </div>
         </div>
-
+        <!-- Novice game to increase to 5 levels -->
+        <div id="game-area-0" class="section game-area-0 novice d-none">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="p-3 justify-content-center col-8 offset-2">
+                        <div class="d-flex flex-wrap justify-content-center">
+                            <div class="card col-6 col-lg-3">
+                                <img src="assets/favicons/freepikmini64.png" class="card01 novicecard"
+                                    alt="image of first card back">
+                            </div>
+                            <div class="card col-6   col-lg-3">
+                                <img src="assets/favicons/freepikmini64.png" class="card02 novicecard"
+                                    alt="image of second card back">
+                            </div>
+                            <div class="card col-6   col-lg-3">
+                                <img src="assets/favicons/freepikmini64.png" class="card03 novicecard"
+                                    alt="image of third card back">
+                            </div>
+                            <div class="card col-6   col-lg-3">
+                                <img src="assets/favicons/freepikmini64.png" class="card04 novicecard"
+                                    alt="image of fourth card back">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Easy -->
         <div id="game-area-1" class="section game-area-1 easy">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="p-3 justify-content-center col-md-8 offset-md-2">
+                    <div class="p-3 justify-content-center col-8 offset-2">
                         <div class="d-flex flex-wrap justify-content-center">
                             <div class="card col-4 col-lg-3">
                                 <img src="assets/favicons/freepikmini64.png" class="card01 easycard"
@@ -90,53 +123,53 @@
         <div id="game-area-2" class="section game-area-2 medium">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="p-3 justify-content-center col-md-8 offset-md-2">
+                    <div class="p-3 justify-content-center col-sm-10 offset-sm-1 col-lg-8 offset-lg-2">
                         <div class="d-flex flex-wrap justify-content-center">
-                            <div class="card col-3">
+                            <div class="card col-3 col-md-2">
                                 <img src="assets/favicons/freepikmini64.png" class="card01 mediumcard"
                                     alt="image of first card back">
                             </div>
-                            <div class="card col-3">
+                            <div class="card col-3 col-md-2">
                                 <img src="assets/favicons/freepikmini64.png" class="card02 mediumcard"
                                     alt="image of second card back">
                             </div>
-                            <div class="card col-3">
+                            <div class="card col-3 col-md-2">
                                 <img src="assets/favicons/freepikmini64.png" class="card03 mediumcard"
                                     alt="image of third card back">
                             </div>
-                            <div class="card col-3">
+                            <div class="card col-3 col-md-2">
                                 <img src="assets/favicons/freepikmini64.png" class="card04 mediumcard"
                                     alt="image of fourth card back">
                             </div>
-                            <div class="card col-3">
+                            <div class="card col-3 col-md-2">
                                 <img src="assets/favicons/freepikmini64.png" class="card05 mediumcard"
                                     alt="image of fifth card back">
                             </div>
-                            <div class="card col-3">
+                            <div class="card col-3 col-md-2">
                                 <img src="assets/favicons/freepikmini64.png" class="card06 mediumcard"
                                     alt="image of sixth card back">
                             </div>
-                            <div class="card col-3">
+                            <div class="card col-3 col-md-2">
                                 <img src="assets/favicons/freepikmini64.png" class="card07 mediumcard"
                                     alt="image of seventh card back">
                             </div>
-                            <div class="card col-3">
+                            <div class="card col-3 col-md-2">
                                 <img src="assets/favicons/freepikmini64.png" class="card08 mediumcard"
                                     alt="image of eighth card back">
                             </div>
-                            <div class="card col-3">
+                            <div class="card col-3 col-md-2">
                                 <img src="assets/favicons/freepikmini64.png" class="card09 mediumcard"
                                     alt="image of ninth card back">
                             </div>
-                            <div class="card col-3">
+                            <div class="card col-3 col-md-2">
                                 <img src="assets/favicons/freepikmini64.png" class="card10 mediumcard"
                                     alt="image of tenth card back">
                             </div>
-                            <div class="card col-3">
+                            <div class="card col-3 col-md-2">
                                 <img src="assets/favicons/freepikmini64.png" class="card11 mediumcard"
                                     alt="image of eleventh card back">
                             </div>
-                            <div class="card col-3">
+                            <div class="card col-3 col-md-2">
                                 <img src="assets/favicons/freepikmini64.png" class="card12 mediumcard"
                                     alt="image of twelfth card back">
                             </div>
@@ -149,7 +182,7 @@
         <div id="game-area-3" class="section game-area-3 hard ">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="p-3 justify-content-center col-md-8 offset-md-2">
+                    <div class="p-3 justify-content-center col-10 offset-1 col-md-8 offset-md-2">
                         <div class="d-flex flex-wrap justify-content-center">
                             <div class="card col-3 col-lg-2">
                                 <img src="assets/favicons/freepikmini64.png" class="card01 hardcard"
@@ -220,6 +253,98 @@
                 </div>
             </div>
         </div>
+        <!-- Impossible game board - to hide initially -->
+        <div id="game-area-4" class="section game-area-4 impossible ">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="p-3 justify-content-center col-10 offset-1">
+                        <div class="d-flex flex-wrap justify-content-center">
+                            <div class="card col-3">
+                                <img src="assets/favicons/freepikmini64.png" class="card01 impossiblecard"
+                                    alt="image of first card back">
+                            </div>
+                            <div class="card col-3">
+                                <img src="assets/favicons/freepikmini64.png" class="card02 impossiblecard"
+                                    alt="image of second card back">
+                            </div>
+                            <div class="card col-3">
+                                <img src="assets/favicons/freepikmini64.png" class="card03 impossiblecard"
+                                    alt="image of third card back">
+                            </div>
+                            <div class="card col-3">
+                                <img src="assets/favicons/freepikmini64.png" class="card04 impossiblecard"
+                                    alt="image of fourth card back">
+                            </div>
+                            <div class="card col-3">
+                                <img src="assets/favicons/freepikmini64.png" class="card05 impossiblecard"
+                                    alt="image of fifth card back">
+                            </div>
+                            <div class="card col-3">
+                                <img src="assets/favicons/freepikmini64.png" class="card06 impossiblecard"
+                                    alt="image of sixth card back">
+                            </div>
+                            <div class="card col-3">
+                                <img src="assets/favicons/freepikmini64.png" class="card07 impossiblecard"
+                                    alt="image of seventh card back">
+                            </div>
+                            <div class="card col-3">
+                                <img src="assets/favicons/freepikmini64.png" class="card08 impossiblecard"
+                                    alt="image of eighth card back">
+                            </div>
+                            <div class="card col-3">
+                                <img src="assets/favicons/freepikmini64.png" class="card09 impossiblecard"
+                                    alt="image of ninth card back">
+                            </div>
+                            <div class="card col-3">
+                                <img src="assets/favicons/freepikmini64.png" class="card10 impossiblecard"
+                                    alt="image of tenth card back">
+                            </div>
+                            <div class="card col-3">
+                                <img src="assets/favicons/freepikmini64.png" class="card11 impossiblecard"
+                                    alt="image of eleventh card back">
+                            </div>
+                            <div class="card col-3">
+                                <img src="assets/favicons/freepikmini64.png" class="card12 impossiblecard"
+                                    alt="image of twelfth card back">
+                            </div>
+                            <div class="card col-3">
+                                <img src="assets/favicons/freepikmini64.png" class="card13 impossiblecard"
+                                    alt="image of thirteenth card back">
+                            </div>
+                            <div class="card col-3">
+                                <img src="assets/favicons/freepikmini64.png" class="card14 impossiblecard"
+                                    alt="image of fourteenth card back">
+                            </div>
+                            <div class="card col-3">
+                                <img src="assets/favicons/freepikmini64.png" class="card15 impossiblecard"
+                                    alt="image of fifteenth card back">
+                            </div>
+                            <div class="card col-3">
+                                <img src="assets/favicons/freepikmini64.png" class="card16 impossiblecard"
+                                    alt="image of sixteenth card back">
+                            </div>
+                            <div class="card col-3">
+                                <img src="assets/favicons/freepikmini64.png" class="card17 impossiblecard"
+                                    alt="image of seventeenth card back">
+                            </div>
+                            <div class="card col-3">
+                                <img src="assets/favicons/freepikmini64.png" class="card18 impossiblecard"
+                                    alt="image of eighteenth card back">
+                            </div>
+                            <div class="card col-3">
+                                <img src="assets/favicons/freepikmini64.png" class="card19 impossiblecard"
+                                    alt="image of nineteenth card back">
+                            </div>
+                            <div class="card col-3">
+                                <img src="assets/favicons/freepikmini64.png" class="card20 impossiblecard"
+                                    alt="image of twentieth card back">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- control button for additional functionality -->
         <div class="section container text-center my-3" id="control-button-section">
             <button type="button" class="btn btn-success" id="restart">Restart Game</button>
@@ -236,7 +361,7 @@
 
                 <!-- Modal -->
                 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-                    tabindex="-1" role="alert"  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    tabindex="-1" role="alert" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header text-center">
