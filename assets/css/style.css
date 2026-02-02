@@ -209,3 +209,21 @@ header h1 {
         padding: 0.15rem;
     }
 }
+/* =========================
+   MOBILE: DIFFICULTY BUTTON FIX
+========================= */
+@media (max-width: 768px) {
+    #difficulty {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.6rem;
+    }
+
+    #difficulty .btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.95rem;
+        min-width: 110px; /* prevents squashing */
+        text-align: center;
+    }
+}
